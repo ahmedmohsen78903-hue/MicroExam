@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medical Microbiology Exam - Online Examination Portal</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    /* Base typography & smooth mobile interaction */
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #f1f5f9;
+      color: #0f172a;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Dark slate-to-teal linear gradient matching portal screenshots */
+    .portal-hero-gradient {
+      background: linear-gradient(135deg, #0f172a 0%, #134e4a 55%, #0d9488 100%);
+    }
+
+    .option-card {
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .option-card:active {
+      transform: scale(0.992);
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-teal-600 selection:text-white">
+
+  <main class="flex-grow w-full max-w-[540px] mx-auto px-4 py-5 sm:py-8">
+
+    <!-- =========================================================
+         VIEW 1: START PORTAL SCREEN
+    ========================================================== -->
+    <section id="start-screen" class="bg-white rounded-3xl shadow-xl shadow-slate-200/80 border border-slate-100 overflow-hidden">
+      <!-- Top Dark Slate-to-Teal Gradient Banner -->
+      <div class="portal-hero-gradient px-6 py-9 sm:px-8 sm:py-10 text-white">
+        <div class="text-center">
+          <div class="inline-block px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-xs border border-white/15 mb-4">
+            <span class="text-[11px] sm:text-xs font-bold tracking-widest uppercase text-slate-100">
+              ONLINE EXAMINATION PORTAL
+            </span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight mb-2">
+            Medical Microbiology Exam
+          </h1>
+          <p class="text-xs sm:text-sm text-teal-100/90 font-medium mb-7">
+            Timed Multiple-Choice Assessment &bull; Randomized Question Order
+          </p>
+        </div>
+
+        <!-- Enter Your Full Name Input Field -->
+        <div class="text-left">
+          <label for="studentNameInput" class="block text-sm font-bold text-white mb-2">
+            Enter Your Full Name
+          </label>
+          <input
+            id="studentNameInput"
+            type="text"
+            autocomplete="name"
+            placeholder="Student Name"
+            class="w-full px-4 py-3.5 rounded-xl bg-white text-slate-900 placeholder-slate-400 font-medium text-base shadow-sm border-2 border-transparent focus:border-teal-300 focus:outline-none transition"
+          />
+        </div>
+      </div>
+
+      <!-- Lower White Body -->
+      <div class="p-6 sm:p-7 space-y-6">
+        <!-- Three Summary Cards -->
+        <div class="grid grid-cols-3 gap-3">
+          <div class="bg-white border border-slate-200/80 rounded-2xl p-4 text-center flex flex-col items-center justify-center shadow-xs">
+            <span class="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-none mb-2">50</span>
+            <span class="text-[10px] sm:text-xs font-semibold tracking-wider uppercase text-slate-500">QUESTIONS</span>
+          </div>
+
+          <div class="bg-white border border-slate-200/80 rounded-2xl p-4 text-center flex flex-col items-center justify-center shadow-xs">
+            <span class="text-xl sm:text-2xl font-extrabold text-[#0d9488] leading-tight mb-1.5">40 Min</span>
+            <span class="text-[10px] sm:text-xs font-semibold tracking-wider uppercase text-slate-500">TIME LIMIT</span>
+          </div>
+
+          <div class="bg-white border border-slate-200/80 rounded-2xl p-4 text-center flex flex-col items-center justify-center shadow-xs">
+            <span class="text-xl sm:text-2xl font-extrabold text-slate-900 leading-none mb-2.5">MCQ</span>
+            <span class="text-[10px] sm:text-xs font-semibold tracking-wider uppercase text-slate-500">FORMAT</span>
+          </div>
+        </div>
+
+        <!-- Light Teal/Mint Exam Rules & Guidelines Box -->
+        <div class="bg-[#f0fdfa] border border-[#99f6e4] rounded-2xl p-5 space-y-2.5">
+          <div class="flex items-center gap-2 text-slate-900 font-bold text-sm sm:text-base">
+            <span class="text-lg" aria-hidden="true">📋</span>
+            <h2>Exam Rules &amp; Guidelines:</h2>
+          </div>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-700 pl-4 list-disc marker:text-teal-600 leading-relaxed">
+            <li>All 50 questions and answer options are automatically shuffled every time the exam begins.</li>
+            <li>The <strong>40:00 countdown timer</strong> starts immediately upon clicking Start Exam and auto-submits when time expires.</li>
+            <li>Use <strong>"Flag for Review"</strong> to mark uncertain questions and <strong>"Show All Questions"</strong> to navigate quickly.</li>
+          </ul>
+        </div>
+
+        <!-- Full-Width Start Exam Button -->
+        <button
+          id="startExamBtn"
+          type="button"
+          class="w-full py-4 px-6 rounded-2xl portal-hero-gradient hover:opacity-95 active:scale-[0.99] text-white font-bold text-base sm:text-lg shadow-lg shadow-slate-900/15 transition"
+        >
+          Start Exam
+        </button>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         VIEW 2: ACTIVE EXAM SCREEN
+    ========================================================== -->
+    <section id="exam-screen" class="hidden space-y-4">
+
+      <!-- Sticky Top Exam Header Card -->
+      <div class="sticky top-2 z-30 bg-white rounded-2xl shadow-md shadow-slate-200/80 border border-slate-200/80 p-4 sm:p-5 space-y-3.5">
+        <!-- Row 1: MM Square Badge + Title + Student Name -->
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-2xl bg-[#0f172a] text-white font-extrabold text-sm sm:text-base flex items-center justify-center shrink-0 tracking-tight shadow-xs">
+            MM
+          </div>
+          <div class="min-w-0 flex-1">
+            <h2 class="text-base sm:text-lg font-extrabold text-slate-900 truncate leading-snug">
+              Medical Microbiology Exam
+            </h2>
+            <p id="headerStudentName" class="text-xs sm:text-sm font-medium text-slate-500 truncate">
+              Student
+            </p>
+          </div>
+        </div>
+
+        <!-- Row 2: Dark Pill Countdown Timer (40:00) + Flagged Indicator -->
+        <div class="flex items-center justify-between gap-2">
+          <div
+            id="timerPill"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0f172a] text-white font-extrabold text-sm sm:text-base tabular-nums shadow-xs transition-colors"
+          >
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0zM9 2h6" />
+            </svg>
+            <span id="timerDisplay">40:00</span>
+          </div>
+
+          <button
+            id="headerFlagCountBtn"
+            type="button"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-800 text-xs font-bold transition"
+            title="Show Flagged Questions"
+          >
+            <span class="text-rose-600 text-xs">🚩</span>
+            <span>Flagged: <span id="headerFlaggedCount">0</span></span>
+          </button>
+        </div>
+
+        <!-- Row 3: Show All Questions + Crimson Submit Exam Buttons -->
+        <div class="grid grid-cols-2 gap-2.5">
+          <button
+            id="toggleAllQuestionsBtn"
+            type="button"
+            class="py-2.5 px-3 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-bold text-xs sm:text-sm transition"
+          >
+            Show All Questions
+          </button>
+
+          <button
+            id="submitExamBtn"
+            type="button"
+            class="py-2.5 px-3 rounded-xl bg-[#e11d48] hover:bg-rose-700 text-white font-bold text-xs sm:text-sm shadow-xs transition"
+          >
+            Submit Exam
+          </button>
+        </div>
+
+        <!-- Row 4: Answered: X / 50 + Percentage + Progress Bar -->
+        <div class="space-y-1.5 pt-0.5">
+          <div class="flex items-center justify-between text-xs font-bold text-slate-600">
+            <span>Answered: <span id="answeredCountText">0</span> / 50</span>
+            <span id="answeredPercentText">0%</span>
+          </div>
+          <div class="w-full h-2 rounded-full bg-slate-100 overflow-hidden">
+            <div
+              id="examProgressBar"
+              class="h-full rounded-full bg-[#0d9488] transition-all duration-300"
+              style="width: 0%;"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collapsible 1-50 Question Navigator Grid -->
+      <div id="navigatorPanel" class="hidden bg-white rounded-2xl shadow-md border border-slate-200/80 p-4 sm:p-5 space-y-3.5">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <h3 class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-slate-700">
+            Question Navigator (1–50)
+          </h3>
+
+          <div class="flex flex-wrap items-center gap-1.5" id="navFilterGroup">
+            <button type="button" data-navfilter="all" class="nav-filter-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-[#0f172a] text-white transition">
+              All (50)
+            </button>
+            <button type="button" data-navfilter="flagged" class="nav-filter-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition">
+              Flagged (<span id="navFlaggedCount">0</span>)
+            </button>
+            <button type="button" data-navfilter="unanswered" class="nav-filter-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+              Unanswered (<span id="navUnansweredCount">50</span>)
+            </button>
+          </div>
+        </div>
+
+        <!-- Color Legend -->
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] font-semibold text-slate-500">
+          <span class="inline-flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-xs ring-2 ring-slate-900 bg-white"></span>Current</span>
+          <span class="inline-flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-xs bg-[#0d9488]"></span>Answered</span>
+          <span class="inline-flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-xs bg-amber-300 border border-amber-500"></span>Flagged</span>
+          <span class="inline-flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-xs bg-slate-100 border border-slate-200"></span>Unanswered</span>
+        </div>
+
+        <!-- 50-Tile Grid -->
+        <div id="navigatorGrid" class="grid grid-cols-5 sm:grid-cols-10 gap-2"></div>
+      </div>
+
+      <!-- Main Question Card -->
+      <div class="bg-white rounded-2xl shadow-md shadow-slate-200/70 border border-slate-200/80 p-5 sm:p-6 space-y-5">
+        <!-- Question Header Badge & Topic -->
+        <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-100">
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-teal-50 text-teal-800 text-xs sm:text-sm font-extrabold">
+            Question <span id="qNumberLabel" class="mx-1">1</span> of 50
+          </span>
+          <div class="flex items-center gap-2">
+            <span id="qFlaggedStatusBadge" class="hidden inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-xs font-bold">
+              🚩 Flagged
+            </span>
+            <span id="qTopicLabel" class="text-xs font-semibold text-slate-400">
+              Staphylococci
+            </span>
+          </div>
+        </div>
+
+        <!-- Question Stem -->
+        <h3 id="questionText" class="text-base sm:text-lg font-bold text-slate-900 leading-relaxed">
+          Loading question...
+        </h3>
+
+        <!-- Vertical Option Cards (A, B, C, D) -->
+        <div id="optionsContainer" class="space-y-3"></div>
+
+        <!-- Bottom Navigation & Flag Controls -->
+        <div class="pt-4 border-t border-slate-100 space-y-3">
+          <!-- Row 1: ← Previous (Left) + 🚩 Flag for Review (Right) -->
+          <div class="flex items-center justify-between gap-3">
+            <button
+              id="prevBtn"
+              type="button"
+              class="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 disabled:opacity-40 disabled:pointer-events-none border border-slate-200 text-slate-700 font-bold text-xs sm:text-sm transition"
+            >
+              <span>&larr;</span>
+              <span>Previous</span>
+            </button>
+
+            <button
+              id="flagBtn"
+              type="button"
+              class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#fef3c7] hover:bg-amber-200/80 border border-amber-300 text-amber-900 font-bold text-xs sm:text-sm transition"
+            >
+              <svg class="w-4 h-4 text-[#d97706] fill-[#e11d48]" viewBox="0 0 24 24">
+                <path d="M4 21V4h9l.4 2H20v10h-7l-.4-2H6v7H4z" />
+              </svg>
+              <span id="flagBtnText">Flag for Review</span>
+            </button>
+          </div>
+
+          <!-- Row 2: Solid Dark Slate Next → Button + Clear Choice -->
+          <div class="flex items-center justify-between gap-3">
+            <button
+              id="nextBtn"
+              type="button"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#0f172a] hover:bg-slate-800 text-white font-bold text-sm shadow-xs transition"
+            >
+              <span id="nextBtnText">Next</span>
+              <span>&rarr;</span>
+            </button>
+
+            <button
+              id="clearChoiceBtn"
+              type="button"
+              class="text-xs font-semibold text-slate-400 hover:text-slate-700 px-2 py-1.5 transition"
+            >
+              Clear Choice
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         VIEW 3: RESULTS & DETAILED ANSWER REVIEW SCREEN
+    ========================================================== -->
+    <section id="results-screen" class="hidden space-y-6">
+      <div class="bg-white rounded-3xl shadow-xl shadow-slate-200/80 border border-slate-100 overflow-hidden">
+        <div class="portal-hero-gradient px-6 py-8 sm:px-8 text-center text-white">
+          <div id="resultStatusBadge" class="inline-block px-4 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-300/30 text-emerald-200 text-xs font-bold uppercase tracking-widest mb-3">
+            EXAM COMPLETED
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Examination Results</h2>
+          <p id="resultStudentLine" class="mt-1 text-sm sm:text-base font-semibold text-teal-200">
+            Candidate: Student
+          </p>
+          <p id="resultSubReason" class="text-xs text-slate-200/85 mt-0.5">Submitted by candidate</p>
+
+          <div class="mt-5 flex items-baseline justify-center gap-2">
+            <span id="finalScoreNum" class="text-5xl sm:text-6xl font-extrabold text-white">0</span>
+            <span class="text-xl sm:text-2xl font-bold text-slate-200">/ 50</span>
+          </div>
+          <p id="finalSummaryLine" class="mt-1.5 text-sm sm:text-base font-bold text-teal-200">
+            0% Score &bull; Time Taken: 00:00 / 40:00
+          </p>
+        </div>
+
+        <div class="p-6 sm:p-7 space-y-5">
+          <!-- Breakdown Stats -->
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-3 text-center">
+              <span id="statCorrect" class="block text-xl font-extrabold text-emerald-700">0</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800/80">Correct</span>
+            </div>
+            <div class="bg-rose-50 border border-rose-200 rounded-2xl p-3 text-center">
+              <span id="statIncorrect" class="block text-xl font-extrabold text-rose-700">0</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-rose-800/80">Incorrect</span>
+            </div>
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-3 text-center">
+              <span id="statUnanswered" class="block text-xl font-extrabold text-slate-700">0</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Unanswered</span>
+            </div>
+            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-3 text-center">
+              <span id="statFlagged" class="block text-xl font-extrabold text-amber-700">0</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-amber-800/80">Flagged</span>
+            </div>
+            <div class="col-span-2 sm:col-span-1 bg-teal-50 border border-teal-200 rounded-2xl p-3 text-center">
+              <span id="statTimeTaken" class="block text-xl font-extrabold text-teal-800">00:00</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-teal-700">Time Taken</span>
+            </div>
+          </div>
+
+          <button
+            id="retakeExamBtn"
+            type="button"
+            class="w-full py-3.5 px-6 rounded-2xl portal-hero-gradient hover:opacity-95 text-white font-bold text-sm sm:text-base shadow-md transition"
+          >
+            Retake Exam (New Shuffle)
+          </button>
+        </div>
+      </div>
+
+      <!-- Detailed Filterable Answer Review -->
+      <div class="bg-white rounded-3xl shadow-md border border-slate-200/80 p-5 sm:p-6 space-y-4">
+        <div class="flex flex-col gap-3">
+          <h3 class="text-lg font-extrabold text-slate-900">Detailed Answer Review</h3>
+          <div class="flex flex-wrap gap-1.5" id="reviewFilters">
+            <button type="button" data-filter="all" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-[#0f172a] text-white transition">
+              All (50)
+            </button>
+            <button type="button" data-filter="incorrect" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+              Incorrect
+            </button>
+            <button type="button" data-filter="correct" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+              Correct
+            </button>
+            <button type="button" data-filter="unanswered" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
+              Unanswered
+            </button>
+            <button type="button" data-filter="flagged" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition">
+              Flagged
+            </button>
+          </div>
+        </div>
+
+        <div id="reviewListContainer" class="space-y-4 pt-1"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       CUSTOM CONFIRMATION MODAL (Replaces native confirm/alert)
+  ========================================================== -->
+  <div id="confirmSubmitModal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-7 shadow-2xl border border-slate-100 text-center space-y-5">
+      <div class="w-12 h-12 rounded-2xl bg-rose-50 text-[#e11d48] flex items-center justify-center mx-auto">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+      <div class="space-y-2">
+        <h3 class="text-xl font-extrabold text-slate-900">Submit Examination?</h3>
+        <div id="confirmSubmitSummary" class="text-sm text-slate-600 leading-relaxed space-y-1.5"></div>
+      </div>
+      <div class="flex items-center gap-3 pt-1">
+        <button
+          id="cancelSubmitBtn"
+          type="button"
+          class="flex-1 py-3 px-4 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-sm transition"
+        >
+          Keep Reviewing
+        </button>
+        <button
+          id="confirmSubmitBtn"
+          type="button"
+          class="flex-1 py-3 px-4 rounded-2xl bg-[#e11d48] hover:bg-rose-700 text-white font-bold text-sm shadow-md transition"
+        >
+          Confirm Submit
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="py-4 text-center text-xs text-slate-400">
+    Medical Microbiology &amp; Immunology &bull; Systemic Bacteriology Assessment
+  </footer>
+
+  <!-- =========================================================
+       JAVASCRIPT LOGIC & COMPLETE 50-QUESTION DATASET
+  ========================================================== -->
+  <script>
+    const QUESTION_BANK = [
+      // --- LECTURE 1: STAPHYLOCOCCI (Questions 1-16) ---
+      {
+        id: 1,
+        topic: "Staphylococci",
+        question: "A clinical isolate of Gram-positive cocci arranged in grape-like clusters is tested with hydrogen peroxide on a glass slide, producing immediate gas bubbles. Which organism is definitively excluded by this reaction?",
+        options: ["Staphylococcus aureus", "Staphylococcus epidermidis", "Staphylococcus saprophyticus", "Enterococcus faecalis"],
+        correct: "Enterococcus faecalis",
+        explanation: "Staphylococci are catalase-positive and liberate oxygen bubbles from hydrogen peroxide, whereas streptococci and enterococci (such as Enterococcus faecalis) are catalase-negative."
+      },
+      {
+        id: 2,
+        topic: "Staphylococci",
+        question: "What percentage of healthy humans typically carry Staphylococcus aureus as part of their normal nasal flora?",
+        options: ["10%", "25%", "40%", "75%"],
+        correct: "40%",
+        explanation: "Humans are the reservoir for staphylococci, and S. aureus is carried in the nose of 40% of healthy people."
+      },
+      {
+        id: 3,
+        topic: "Staphylococci",
+        question: "A 22-year-old sexually active woman presents with dysuria and urinary frequency. Urine culture yields catalase-positive, coagulase-negative Gram-positive cocci that form lemon-yellow colonies on nutrient agar. Which antibiotic susceptibility result confirms the causative agent?",
+        options: ["Sensitivity to bacitracin", "Resistance to novobiocin", "Sensitivity to optochin", "Sensitivity to novobiocin"],
+        correct: "Resistance to novobiocin",
+        explanation: "S. saprophyticus causes community-acquired UTIs in sexually active young women, forms lemon-yellow colonies on nutrient agar, and is novobiocin-resistant (while S. epidermidis is novobiocin-sensitive)."
+      },
+      {
+        id: 4,
+        topic: "Staphylococci",
+        question: "Which combination of colony appearances on nutrient agar, blood agar, and mannitol salt agar accurately identifies Staphylococcus aureus?",
+        options: [
+          "White, non-hemolytic, red colonies",
+          "Golden-yellow, beta-hemolytic, yellow colonies",
+          "Lemon-yellow, non-hemolytic, red colonies",
+          "Golden-yellow, alpha-hemolytic, pink colonies"
+        ],
+        correct: "Golden-yellow, beta-hemolytic, yellow colonies",
+        explanation: "S. aureus produces golden-yellow colonies on nutrient agar, beta-hemolytic colonies on blood agar, and yellow colonies on mannitol salt agar due to mannitol fermentation."
+      },
+      {
+        id: 5,
+        topic: "Staphylococci",
+        question: "How does Protein A on the cell wall of Staphylococcus aureus interfere with host immune defenses?",
+        options: [
+          "It degrades secretory IgA1 on respiratory mucosa",
+          "It binds IgG at the complement-binding site to block complement activation",
+          "It directly lyses polymorphonuclear leukocytes",
+          "It converts soluble fibrinogen into fibrin strands"
+        ],
+        correct: "It binds IgG at the complement-binding site to block complement activation",
+        explanation: "Protein A binds to IgG at the complement-binding site, preventing complement activation and inhibiting antibody-mediated killing."
+      },
+      {
+        id: 6,
+        topic: "Staphylococci",
+        question: "Which staphylococcal enzyme promotes resistance to phagocytosis by converting soluble fibrinogen into an insoluble fibrin coat around the bacteria?",
+        options: ["Staphylokinase", "Hyaluronidase", "Coagulase", "Catalase"],
+        correct: "Coagulase",
+        explanation: "Coagulase converts fibrinogen to fibrin deposited around staphylococci so they resist phagocytosis."
+      },
+      {
+        id: 7,
+        topic: "Staphylococci",
+        question: "A young child develops widespread erythema followed by extensive peeling and sloughing of the superficial epidermis. Which staphylococcal virulence factor directly mediates this pathology?",
+        options: ["Toxic shock syndrome toxin-1 (TSST-1)", "Exfoliative toxin", "Enterotoxin", "Alpha-hemolysin"],
+        correct: "Exfoliative toxin",
+        explanation: "Exfoliative toxin acts as a protease on skin proteins, causing skin peeling and destruction known as Staphylococcal Scalded Skin Syndrome (SSSS) in young children."
+      },
+      {
+        id: 8,
+        topic: "Staphylococci",
+        question: "Three hours after eating leftover rice and pasta left at room temperature, several family members experience acute vomiting and abdominal cramps without fever. Why is the incubation period so brief?",
+        options: [
+          "Rapid bacterial invasion of the intestinal submucosa",
+          "The enterotoxin is preformed in carbohydrate-rich food prior to ingestion",
+          "Immediate activation of systemic T-cells by superantigens",
+          "Rapid germination of bacterial spores in gastric acid"
+        ],
+        correct: "The enterotoxin is preformed in carbohydrate-rich food prior to ingestion",
+        explanation: "Staphylococcal food poisoning is caused by ingestion of preformed enterotoxin in carbohydrate-rich food, milk, and milk products, resulting in a short incubation period (1–8 hours)."
+      },
+      {
+        id: 9,
+        topic: "Staphylococci",
+        question: "Which mechanism best explains the hypotension and shock observed in staphylococcal toxic shock syndrome associated with tampon contamination?",
+        options: [
+          "Direct proteolytic destruction of vascular endothelial junctions",
+          "Massive release of immune mediators inducing widespread vasodilation",
+          "Formation of disseminated fibrin microthrombi in renal glomeruli",
+          "Inhibition of myocardial protein synthesis"
+        ],
+        correct: "Massive release of immune mediators inducing widespread vasodilation",
+        explanation: "TSST triggers the release of immune mediators that act on blood vessels, causing generalized vasodilation, fever, and shock."
+      },
+      {
+        id: 10,
+        topic: "Staphylococci",
+        question: "A patient with a prosthetic heart valve develops a persistent pyogenic infection. Blood cultures isolate a catalase-positive, coagulase-negative, novobiocin-sensitive organism. Which virulence factor enables this organism to colonize prosthetic implants?",
+        options: ["Hyaluronic acid capsule", "Glycocalyx", "M protein", "Staphylokinase"],
+        correct: "Glycocalyx",
+        explanation: "S. epidermidis is a prominent cause of pyogenic infections on prosthetic implants (such as heart valves and hip joints) due to production of glycocalyx."
+      },
+      {
+        id: 11,
+        topic: "Staphylococci",
+        question: "Which demographic group is most classically affected by acute hematogenous osteomyelitis caused by Staphylococcus aureus?",
+        options: [
+          "Elderly women over 65 years",
+          "Boys under 12 years of age",
+          "Neonates within the first 7 days of life",
+          "Sexually active young adult females"
+        ],
+        correct: "Boys under 12 years of age",
+        explanation: "S. aureus osteomyelitis occurs commonly in children (boys under 12 years), causing pain over the involved bone and high fever."
+      },
+      {
+        id: 12,
+        topic: "Staphylococci",
+        question: "Which statement accurately describes the morphological and staining characteristics of staphylococci?",
+        options: [
+          "Gram-positive lancet-shaped diplococci, motile, spore-forming",
+          "Gram-positive cocci in grape-like clusters, non-motile, non-spore-forming",
+          "Gram-positive cocci in long chains, non-capsulated, spore-forming",
+          "Gram-negative kidney-shaped diplococci, non-motile"
+        ],
+        correct: "Gram-positive cocci in grape-like clusters, non-motile, non-spore-forming",
+        explanation: "Staphylococci are Gram-positive cocci arranged in 'grape-like' clusters, capsulated, non-spore-forming, and non-motile."
+      },
+      {
+        id: 13,
+        topic: "General Bacteriology",
+        question: "Which diagnostic technique is performed directly on a clinical specimen prior to culture to rapidly detect a bacterial capsular antigen?",
+        options: ["Catalase slide test", "Quellung test", "Mannitol fermentation test", "Coagulase tube test"],
+        correct: "Quellung test",
+        explanation: "Direct detection tests performed on a clinical specimen before culture rapidly detect capsular antigen via agglutination or the Quellung test."
+      },
+      {
+        id: 14,
+        topic: "Staphylococci",
+        question: "How does catalase contribute to the intracellular survival of Staphylococcus aureus within host neutrophils?",
+        options: [
+          "It neutralizes lysosomal acid hydrolases",
+          "It degrades bactericidal hydrogen peroxide into water and oxygen",
+          "It prevents phagosome-lysosome fusion",
+          "It cleaves complement component C3b"
+        ],
+        correct: "It degrades bactericidal hydrogen peroxide into water and oxygen",
+        explanation: "Catalase destroys bactericidal H2O2 released from phagocytes into O2 and H2O, limiting the ability of phagocytic cells to kill bacteria."
+      },
+      {
+        id: 15,
+        topic: "Staphylococci",
+        question: "Which staphylococcal enzyme acts as a fibrinolysin and can be utilized therapeutically to lyse thrombi?",
+        options: ["Coagulase", "Hyaluronidase", "Staphylokinase", "Catalase"],
+        correct: "Staphylokinase",
+        explanation: "Staphylokinase (= fibrinolysin) is used in the lysis of thrombi."
+      },
+      {
+        id: 16,
+        topic: "Staphylococci",
+        question: "A patient presents with a superficial skin infection characterized by localized pus collections around hair follicles. Which classification best fits this Staphylococcus aureus infection?",
+        options: [
+          "Toxin-mediated disease",
+          "Superficial pyogenic infection",
+          "Deep invasive pyogenic infection",
+          "Post-infectious immune-complex disease"
+        ],
+        correct: "Superficial pyogenic infection",
+        explanation: "Folliculitis, carbuncles, boils, and abscesses are superficial pyogenic infections caused by S. aureus."
+      },
+
+      // --- LECTURE 2: STREPTOCOCCI PART 1 - S. PYOGENES (Questions 17-27) ---
+      {
+        id: 17,
+        topic: "Streptococci - Group A",
+        question: "On blood agar, Streptococcus pyogenes colonies are surrounded by a clear, colorless zone of complete red blood cell lysis. Which virulence factor is directly responsible for this visible zone on the agar plate?",
+        options: ["Streptolysin O", "Streptolysin S", "Pyrogenic exotoxin A", "Hyaluronidase"],
+        correct: "Streptolysin S",
+        explanation: "Streptolysin S is responsible for the hemolytic zones around streptococcal colonies grown on blood agar, while Streptolysin O induces ASO antibodies."
+      },
+      {
+        id: 18,
+        topic: "Streptococci - Group A",
+        question: "Which structural component of Streptococcus pyogenes serves as its major virulence factor by inhibiting phagocytosis and intracellular killing by polymorphonuclear leukocytes?",
+        options: ["Protein A", "M protein", "F protein", "CAMP factor"],
+        correct: "M protein",
+        explanation: "M protein is the major virulence factor of S. pyogenes; it resists phagocytosis and intracellular killing by polymorphonuclear leukocytes."
+      },
+      {
+        id: 19,
+        topic: "Streptococci - Group A",
+        question: "A throat swab from a child with follicular tonsillitis is cultured on blood agar in an atmosphere enriched with 5–10% CO2. Beta-hemolytic, catalase-negative colonies are isolated. Which test confirms the isolate is Streptococcus pyogenes rather than Streptococcus agalactiae?",
+        options: ["Bile solubility", "Sensitivity to bacitracin", "Sensitivity to optochin", "Positive CAMP test"],
+        correct: "Sensitivity to bacitracin",
+        explanation: "S. pyogenes (Group A) is bacitracin-sensitive, whereas S. agalactiae (Group B) is bacitracin-resistant."
+      },
+      {
+        id: 20,
+        topic: "Streptococci - Group A",
+        question: "Which enzyme produced by Streptococcus pyogenes transforms human plasminogen into active plasmin to digest fibrin and facilitate bacterial escape from blood clots?",
+        options: ["Streptodornase", "Hyaluronidase", "Streptokinase", "Coagulase"],
+        correct: "Streptokinase",
+        explanation: "Streptokinase (fibrinolysin) transforms human plasminogen into active plasmin, digesting fibrin clots so bacteria can escape."
+      },
+      {
+        id: 21,
+        topic: "Streptococci - Group A",
+        question: "Which pyrogenic exotoxin produced by Streptococcus pyogenes is specifically noted for mediating severe tissue necrosis?",
+        options: ["Pyrogenic exotoxin A", "Pyrogenic exotoxin B", "Pyrogenic exotoxin C", "Streptolysin O"],
+        correct: "Pyrogenic exotoxin B",
+        explanation: "Pyrogenic exotoxin B mediates tissue necrosis, whereas pyrogenic exotoxins A and C are associated with scarlet fever and toxic shock syndrome."
+      },
+      {
+        id: 22,
+        topic: "Streptococci - Group A",
+        question: "A patient presents with a hot, tender, pinkish-red flat area on the lower leg with poorly defined, non-raised borders accompanied by red streaks of ascending lymphangitis. What is the most likely diagnosis?",
+        options: ["Impetigo", "Cellulitis", "Staphylococcal scalded skin syndrome", "Follicular tonsillitis"],
+        correct: "Cellulitis",
+        explanation: "Cellulitis involves deeper dermis and subcutaneous fat; it is not raised, lacks a well-demarcated edge, and may show ascending lymphangitis."
+      },
+      {
+        id: 23,
+        topic: "Streptococci - Group A",
+        question: "What is the primary immunopathogenic mechanism underlying acute rheumatic fever following an untreated Group A streptococcal pharyngitis?",
+        options: [
+          "Direct invasion of heart valves by live bacteria",
+          "Molecular mimicry leading to autoimmune cross-reactivity",
+          "Circulating enterotoxin-induced vasodilation",
+          "IgE-mediated mast cell degranulation"
+        ],
+        correct: "Molecular mimicry leading to autoimmune cross-reactivity",
+        explanation: "Rheumatic fever follows untreated Group A streptococcal pharyngitis via molecular mimicry causing autoimmune damage to heart, joints, and skin."
+      },
+      {
+        id: 24,
+        topic: "Streptococci - Group A",
+        question: "A 9-year-old boy develops hematuria, periorbital edema, and hypertension two weeks after a streptococcal skin infection. Which pathogenic process explains his renal findings?",
+        options: [
+          "Direct pyogenic abscess formation in the renal cortex",
+          "Immune-complex-mediated inflammation of the glomeruli",
+          "Exfoliative toxin-mediated tubular necrosis",
+          "Autoantibodies against glomerular basement membrane collagen"
+        ],
+        correct: "Immune-complex-mediated inflammation of the glomeruli",
+        explanation: "Acute glomerulonephritis (AGN) follows streptococcal pharyngitis or skin infection via immune-complex-mediated inflammation of the glomeruli (hematuria + edema + hypertension)."
+      },
+      {
+        id: 25,
+        topic: "Streptococci - Group A",
+        question: "Which diagnostic criterion indicates a positive Antistreptolysin O (ASO) titer, and when does the antibody level typically reach its peak?",
+        options: [
+          "Greater than 50 IU/mL, peaking at 1 week",
+          "Greater than 200 IU/mL, peaking at 4–6 weeks",
+          "Greater than 500 IU/mL, peaking at 6 months",
+          "Greater than 100 IU/mL, peaking at 48 hours"
+        ],
+        correct: "Greater than 200 IU/mL, peaking at 4–6 weeks",
+        explanation: "A positive ASO titer is > 200 IU/mL; the titer rises to a peak at 4–6 weeks and may remain elevated for 1 year."
+      },
+      {
+        id: 26,
+        topic: "Streptococci - Group A",
+        question: "Why is the Antistreptolysin O (ASO) test useful in diagnosing rheumatic fever and acute glomerulonephritis?",
+        options: [
+          "It directly cultures live streptococci from synovial fluid",
+          "It detects antibodies against Streptolysin O to confirm recent Group A streptococcal infection",
+          "It measures complement C3 consumption in serum",
+          "It identifies the specific Lancefield carbohydrate antigen in urine"
+        ],
+        correct: "It detects antibodies against Streptolysin O to confirm recent Group A streptococcal infection",
+        explanation: "ASO detects antibodies to Streptolysin O produced by Group A streptococci, confirming prior infection in post-streptococcal complications."
+      },
+      {
+        id: 27,
+        topic: "Streptococci - Group A",
+        question: "Which combination of capsule composition and enzyme production correctly characterizes Streptococcus pyogenes?",
+        options: [
+          "Polysaccharide capsule and coagulase enzyme",
+          "Hyaluronic acid capsule and hyaluronidase enzyme",
+          "Polypeptide capsule and catalase enzyme",
+          "Hyaluronic acid capsule and IgA1 protease"
+        ],
+        correct: "Hyaluronic acid capsule and hyaluronidase enzyme",
+        explanation: "S. pyogenes possesses a hyaluronic acid capsule and secretes hyaluronidase (spreading factor)."
+      },
+
+      // --- LECTURE 3: STREPTOCOCCI PART 2 - GBS, PNEUMOCOCCI, VIRIDANS (Questions 28-50) ---
+      {
+        id: 28,
+        topic: "Streptococci - Group B",
+        question: "In the CAMP test, an unknown beta-hemolytic streptococcus is streaked perpendicular to a streak of Staphylococcus aureus on blood agar, resulting in an arrowhead-shaped zone of enhanced hemolysis. Which organism is identified?",
+        options: ["Streptococcus pyogenes", "Streptococcus agalactiae", "Streptococcus pneumoniae", "Enterococcus faecalis"],
+        correct: "Streptococcus agalactiae",
+        explanation: "Streptococcus agalactiae produces an arrowhead-shaped positive CAMP reaction when streaked perpendicular to S. aureus."
+      },
+      {
+        id: 29,
+        topic: "Streptococci - Group B",
+        question: "What is the biochemical mechanism behind a positive CAMP test?",
+        options: [
+          "Hyaluronidase digests agar lipids around staphylococcal colonies",
+          "CAMP factor acts synergistically with staphylococcal beta-lysin to enhance RBC lysis",
+          "Streptolysin O is reactivated by staphylococcal catalase",
+          "Bacitracin diffuses from the staphylococcal streak to inhibit hemolysis"
+        ],
+        correct: "CAMP factor acts synergistically with staphylococcal beta-lysin to enhance RBC lysis",
+        explanation: "S. agalactiae produces CAMP factor (a diffusible extracellular protein) that synergistically acts with the beta-lysin of S. aureus to enhance lysis of red blood cells."
+      },
+      {
+        id: 30,
+        topic: "Streptococci - Group B",
+        question: "A 3-day-old newborn develops respiratory distress, lethargy, and signs of sepsis and meningitis. Vaginal screening of the mother had been omitted prior to delivery. Which organism is the most likely cause?",
+        options: ["Streptococcus pyogenes", "Streptococcus agalactiae", "Staphylococcus saprophyticus", "Streptococcus mutans"],
+        correct: "Streptococcus agalactiae",
+        explanation: "S. agalactiae inhabits the vagina of about 25% of normal adult females and causes early-onset neonatal pneumonia, meningitis, and sepsis within 7 days of birth."
+      },
+      {
+        id: 31,
+        topic: "Streptococci - Group B",
+        question: "What is the recommended intrapartum prophylaxis protocol to prevent neonatal colonization and early-onset disease in mothers carrying Streptococcus agalactiae?",
+        options: [
+          "Oral vancomycin started 1 week before due date",
+          "Ampicillin administered at least 4 hours before delivery",
+          "Single-dose intramuscular ceftriaxone after delivery",
+          "Topical bacitracin applied during labor"
+        ],
+        correct: "Ampicillin administered at least 4 hours before delivery",
+        explanation: "Ampicillin administered at least 4 hours before delivery prevents colonization of infants whose mothers carry Group B streptococci."
+      },
+      {
+        id: 32,
+        topic: "Streptococci - Group B",
+        question: "How do early-onset and late-onset neonatal infections caused by Streptococcus agalactiae differ in timing and clinical presentation?",
+        options: [
+          "Early-onset occurs within 7 days with pneumonia/sepsis/meningitis; late-onset occurs after 1 week with meningitis/bacteremia",
+          "Early-onset occurs within 24 hours with impetigo; late-onset occurs at 6 months with rheumatic fever",
+          "Early-onset occurs after 1 week with UTIs; late-onset occurs within 7 days with endocarditis",
+          "Early-onset is toxin-mediated; late-onset is exclusively superficial skin infection"
+        ],
+        correct: "Early-onset occurs within 7 days with pneumonia/sepsis/meningitis; late-onset occurs after 1 week with meningitis/bacteremia",
+        explanation: "Early-onset neonatal disease occurs within 7 days of birth (pneumonia, meningitis, sepsis), while late-onset occurs >1 week after birth (meningitis and bacteremia)."
+      },
+      {
+        id: 33,
+        topic: "Streptococci - Group B",
+        question: "Which set of phenotypic traits accurately distinguishes Streptococcus agalactiae from Streptococcus pyogenes?",
+        options: [
+          "Lancefield Group A, bacitracin-sensitive, CAMP-negative",
+          "Lancefield Group B, bacitracin-resistant, CAMP-positive",
+          "Lancefield Group B, optochin-sensitive, bile-soluble",
+          "Lancefield Group D, gamma-hemolytic, catalase-positive"
+        ],
+        correct: "Lancefield Group B, bacitracin-resistant, CAMP-positive",
+        explanation: "S. agalactiae is a member of Lancefield Group B, beta-hemolytic, bacitracin-resistant, and CAMP test positive."
+      },
+      {
+        id: 34,
+        topic: "Pneumococci",
+        question: "A Gram stain of purulent sputum from an adult with lobar pneumonia reveals Gram-positive, lancet-shaped diplococci surrounded by unstained halos. Which morphological description applies to this organism?",
+        options: [
+          "Spherical cocci in grape-like clusters, non-capsulated",
+          "Oval cocci with pointed ends arranged in pairs, capsulated and non-motile",
+          "Pleomorphic Gram-negative rods arranged in palisades",
+          "Cocci arranged in long serpentine chains with spore formation"
+        ],
+        correct: "Oval cocci with pointed ends arranged in pairs, capsulated and non-motile",
+        explanation: "Pneumococci are Gram-positive, lancet-shaped (oval with pointed ends) cocci arranged in pairs (diplococci), non-motile, non-spore-forming, and capsulated."
+      },
+      {
+        id: 35,
+        topic: "Pneumococci",
+        question: "Which virulence factor of Streptococcus pneumoniae enables the bacterium to colonize the upper respiratory mucosa by cleaving secretory antibodies?",
+        options: ["Pneumolysin", "IgA1 protease", "Autolysin", "Hyaluronic acid capsule"],
+        correct: "IgA1 protease",
+        explanation: "IgA1 protease cleaves mucosal IgA1 and aids upper respiratory mucosal colonization."
+      },
+      {
+        id: 36,
+        topic: "Pneumococci & Viridans",
+        question: "Two alpha-hemolytic streptococcal isolates are recovered from blood and respiratory cultures. Isolate X lyses in the presence of sodium deoxycholate and shows a zone of inhibition around an optochin ('P') disk, whereas Isolate Y grows up to the disk and does not lyse. What are Isolates X and Y?",
+        options: [
+          "Isolate X is viridans streptococci; Isolate Y is Streptococcus pneumoniae",
+          "Isolate X is Streptococcus pneumoniae; Isolate Y is viridans streptococci",
+          "Isolate X is Streptococcus pyogenes; Isolate Y is Enterococcus faecalis",
+          "Isolate X is Streptococcus agalactiae; Isolate Y is Staphylococcus epidermidis"
+        ],
+        correct: "Isolate X is Streptococcus pneumoniae; Isolate Y is viridans streptococci",
+        explanation: "Pneumococci are bile-soluble, optochin-sensitive, and Quellung-positive; viridans streptococci are bile-insoluble, optochin-resistant, and Quellung-negative."
+      },
+      {
+        id: 37,
+        topic: "Pneumococci",
+        question: "What occurs microscopically during a positive Quellung reaction for Streptococcus pneumoniae?",
+        options: [
+          "Bacterial chains break apart into individual cocci",
+          "Specific antisera bind the capsule, causing it to swell and appear more transparent",
+          "Red blood cells surrounding the bacteria undergo complete lysis",
+          "Gram-positive cocci lose their crystal violet stain and turn pink"
+        ],
+        correct: "Specific antisera bind the capsule, causing it to swell and appear more transparent",
+        explanation: "This antigen-antibody reaction causes the bacterial capsule to swell and become more transparent under the microscope."
+      },
+      {
+        id: 38,
+        topic: "Pneumococci",
+        question: "What is the biochemical principle of the bile solubility test used to identify Streptococcus pneumoniae?",
+        options: [
+          "Fermentation of bile salts produces a yellow color change",
+          "Lysis of bacterial cells in the presence of bile salts such as sodium deoxycholate",
+          "Precipitation of capsular polysaccharides when mixed with rabbit serum",
+          "Inhibition of catalase activity by bile acids"
+        ],
+        correct: "Lysis of bacterial cells in the presence of bile salts such as sodium deoxycholate",
+        explanation: "The bile solubility test is based on the lysis of S. pneumoniae cells in the presence of bile salts like sodium deoxycholate."
+      },
+      {
+        id: 39,
+        topic: "Pneumococci",
+        question: "How does the Pneumococcal Conjugate Vaccine (PCV13) differ structurally from the Polyvalent Polysaccharide Vaccine (PPV23)?",
+        options: [
+          "PCV13 contains live attenuated bacteria, whereas PPV23 contains killed whole cells",
+          "PCV13 couples 13 capsular polysaccharide antigens to a carrier protein, whereas PPV23 contains 23 pure capsular polysaccharides",
+          "PCV13 targets pneumolysin toxoid, whereas PPV23 targets IgA1 protease",
+          "PCV13 contains 23 conjugated antigens, whereas PPV23 contains 13 unconjugated antigens"
+        ],
+        correct: "PCV13 couples 13 capsular polysaccharide antigens to a carrier protein, whereas PPV23 contains 23 pure capsular polysaccharides",
+        explanation: "PCV13 consists of capsular polysaccharide antigens of the 13 most common serotypes coupled to a carrier protein, while PPV23 consists of capsular polysaccharides of 23 serotypes."
+      },
+      {
+        id: 40,
+        topic: "Pneumococci",
+        question: "Which statement is true regarding the licensing history and serotype coverage of PCV13?",
+        options: [
+          "It was licensed in 2000 and replaced PPV23",
+          "It was licensed in 2010 and replaced the earlier PCV7 vaccine",
+          "It covers 23 serotypes and is only given to adults over 65",
+          "It is a non-capsular protein vaccine licensed in 2020"
+        ],
+        correct: "It was licensed in 2010 and replaced the earlier PCV7 vaccine",
+        explanation: "PCV13 was licensed in 2010 and replaced PCV7."
+      },
+      {
+        id: 41,
+        topic: "Pneumococci",
+        question: "In patients with invasive pneumococcal infections, approximately what percentage of blood cultures yield a positive result?",
+        options: ["1–5%", "15–25%", "60–75%", "90–100%"],
+        correct: "15–25%",
+        explanation: "Blood culture is positive in 15–25% of pneumococcal infections."
+      },
+      {
+        id: 42,
+        topic: "Viridans Streptococci",
+        question: "Which beneficial physiological role do viridans streptococci perform as members of the normal flora of the oral cavity, gastrointestinal tract, and female genital tract?",
+        options: [
+          "They synthesize vitamin K and B12 for host absorption",
+          "They inhibit colonization by pathogenic streptococci",
+          "They neutralize gastric hydrochloric acid",
+          "They produce secretory IgA antibodies"
+        ],
+        correct: "They inhibit colonization by pathogenic streptococci",
+        explanation: "Viridans streptococci are normal flora of the oral cavity, GI tract, and female genital tract that inhibit colonization of pathogenic streptococci."
+      },
+      {
+        id: 43,
+        topic: "Viridans Streptococci",
+        question: "A 45-year-old man with a history of rheumatic heart disease develops a low-grade fever, fatigue, and a new heart murmur three weeks after undergoing a tooth extraction. Blood cultures grow alpha-hemolytic, optochin-resistant, bile-insoluble Gram-positive cocci in chains. What is the diagnosis?",
+        options: [
+          "Acute rheumatic fever",
+          "Subacute bacterial endocarditis",
+          "Streptococcal toxic shock syndrome",
+          "Early-onset neonatal sepsis"
+        ],
+        correct: "Subacute bacterial endocarditis",
+        explanation: "Viridans streptococci enter the bloodstream during tooth extraction or tonsillectomy and adhere to damaged heart valves (rheumatic heart disease, congenital heart defects, or prosthetic valves) to cause subacute bacterial endocarditis (SBE)."
+      },
+      {
+        id: 44,
+        topic: "Viridans Streptococci",
+        question: "Which prophylactic measure is recommended prior to dental extraction or tonsillectomy in patients with congenital heart defects or prosthetic heart valves to prevent subacute bacterial endocarditis?",
+        options: [
+          "Intramuscular benzathine penicillin given 1 month after surgery",
+          "Prophylactic amoxicillin",
+          "Oral novobiocin for 14 days",
+          "Pneumococcal polysaccharide vaccine (PPV23)"
+        ],
+        correct: "Prophylactic amoxicillin",
+        explanation: "Prophylactic amoxicillin before dental or surgical procedures prevents SBE caused by viridans streptococci."
+      },
+      {
+        id: 45,
+        topic: "Viridans Streptococci",
+        question: "Which two species are specifically highlighted as examples of viridans streptococci?",
+        options: [
+          "Streptococcus pyogenes and Streptococcus agalactiae",
+          "Streptococcus mutans and Streptococcus sanguis",
+          "Enterococcus faecalis and Enterococcus faecium",
+          "Staphylococcus epidermidis and Staphylococcus saprophyticus"
+        ],
+        correct: "Streptococcus mutans and Streptococcus sanguis",
+        explanation: "S. mutans and S. sanguis are key species of viridans streptococci (which also cause dental plaque and dental caries)."
+      },
+      {
+        id: 46,
+        topic: "Streptococci",
+        question: "How are streptococci primarily classified in the medical microbiology laboratory?",
+        options: [
+          "Coagulase production and mannitol fermentation",
+          "Hemolysis pattern on blood agar and serologic specificity",
+          "Novobiocin resistance and pigment production",
+          "Motility and hydrogen sulfide production"
+        ],
+        correct: "Hemolysis pattern on blood agar and serologic specificity",
+        explanation: "Streptococci are classified based on (1) hemolysis on blood agar and (2) serologic specificity (Lancefield groups)."
+      },
+      {
+        id: 47,
+        topic: "Streptococci",
+        question: "What does gamma-hemolysis on a blood agar plate indicate?",
+        options: [
+          "Partial green hemolysis of red blood cells",
+          "Complete clear lysis of red blood cells",
+          "No hemolysis of red blood cells around the bacterial colonies",
+          "Double-zone target hemolysis"
+        ],
+        correct: "No hemolysis of red blood cells around the bacterial colonies",
+        explanation: "Gamma-hemolysis means no hemolysis on blood agar."
+      },
+      {
+        id: 48,
+        topic: "Enterococci",
+        question: "Which organisms belong to the non-hemolytic (gamma-hemolytic), catalase-negative Gram-positive cocci group?",
+        options: [
+          "Streptococcus pneumoniae and viridans streptococci",
+          "Enterococcus faecalis and Enterococcus faecium",
+          "Staphylococcus epidermidis and Staphylococcus saprophyticus",
+          "Streptococcus pyogenes and Streptococcus agalactiae"
+        ],
+        correct: "Enterococcus faecalis and Enterococcus faecium",
+        explanation: "Enterococci (E. faecalis and E. faecium) are non-hemolytic (gamma-hemolytic), catalase-negative Gram-positive cocci."
+      },
+      {
+        id: 49,
+        topic: "Streptococci",
+        question: "Which atmospheric condition enhances the growth of both Streptococcus pyogenes and Streptococcus pneumoniae on blood agar?",
+        options: [
+          "Strict anaerobic conditions without oxygen",
+          "5–10% carbon dioxide",
+          "100% pure oxygen",
+          "High salt concentration (7.5% NaCl)"
+        ],
+        correct: "5–10% carbon dioxide",
+        explanation: "Both S. pyogenes and S. pneumoniae are facultative anaerobes whose growth is enhanced by 5–10% CO2."
+      },
+      {
+        id: 50,
+        topic: "Comparative Virulence",
+        question: "Which enzyme produced by both Staphylococcus aureus and Streptococcus pyogenes hydrolyzes the ground substance of connective tissue to facilitate bacterial spread through host tissues?",
+        options: ["Coagulase", "Hyaluronidase", "Streptokinase", "Staphylokinase"],
+        correct: "Hyaluronidase",
+        explanation: "Both S. aureus and S. pyogenes produce hyaluronidase, which splits hyaluronic acid in connective tissue ground substance to aid spread."
+      }
+    ];
+
+    // Exam State (40 Minutes = 2400 Seconds)
+    const TOTAL_TIME_SECONDS = 40 * 60;
+    let studentName = "Student";
+    let activeQuestions = [];
+    let userAnswers = [];
+    let flaggedQuestions = [];
+    let currentIndex = 0;
+    let remainingSeconds = TOTAL_TIME_SECONDS;
+    let timerInterval = null;
+    let examSubmitted = false;
+    let navigatorOpen = false;
+    let currentNavFilter = "all";
+
+    // DOM Elements
+    const startScreen = document.getElementById("start-screen");
+    const examScreen = document.getElementById("exam-screen");
+    const resultsScreen = document.getElementById("results-screen");
+
+    const studentNameInput = document.getElementById("studentNameInput");
+    const startExamBtn = document.getElementById("startExamBtn");
+    const retakeExamBtn = document.getElementById("retakeExamBtn");
+
+    const headerStudentName = document.getElementById("headerStudentName");
+    const timerPill = document.getElementById("timerPill");
+    const timerDisplay = document.getElementById("timerDisplay");
+    const headerFlaggedCount = document.getElementById("headerFlaggedCount");
+    const headerFlagCountBtn = document.getElementById("headerFlagCountBtn");
+
+    const toggleAllQuestionsBtn = document.getElementById("toggleAllQuestionsBtn");
+    const submitExamBtn = document.getElementById("submitExamBtn");
+    const answeredCountText = document.getElementById("answeredCountText");
+    const answeredPercentText = document.getElementById("answeredPercentText");
+    const examProgressBar = document.getElementById("examProgressBar");
+
+    const navigatorPanel = document.getElementById("navigatorPanel");
+    const navigatorGrid = document.getElementById("navigatorGrid");
+    const navFlaggedCount = document.getElementById("navFlaggedCount");
+    const navUnansweredCount = document.getElementById("navUnansweredCount");
+
+    const qNumberLabel = document.getElementById("qNumberLabel");
+    const qFlaggedStatusBadge = document.getElementById("qFlaggedStatusBadge");
+    const qTopicLabel = document.getElementById("qTopicLabel");
+    const questionText = document.getElementById("questionText");
+    const optionsContainer = document.getElementById("optionsContainer");
+
+    const prevBtn = document.getElementById("prevBtn");
+    const flagBtn = document.getElementById("flagBtn");
+    const flagBtnText = document.getElementById("flagBtnText");
+    const nextBtn = document.getElementById("nextBtn");
+    const nextBtnText = document.getElementById("nextBtnText");
+    const clearChoiceBtn = document.getElementById("clearChoiceBtn");
+
+    const confirmSubmitModal = document.getElementById("confirmSubmitModal");
+    const confirmSubmitSummary = document.getElementById("confirmSubmitSummary");
+    const cancelSubmitBtn = document.getElementById("cancelSubmitBtn");
+    const confirmSubmitBtn = document.getElementById("confirmSubmitBtn");
+
+    function shuffleArray(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function formatTime(secs) {
+      const m = Math.floor(secs / 60);
+      const s = secs % 60;
+      return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+    }
+
+    function startExam() {
+      const typed = studentNameInput.value.trim();
+      studentName = typed.length > 0 ? typed : "Student";
+      headerStudentName.textContent = studentName;
+
+      // Shuffle both question order and option order on every start
+      activeQuestions = shuffleArray(QUESTION_BANK).map((q) => ({
+        ...q,
+        shuffledOptions: shuffleArray(q.options),
+      }));
+
+      userAnswers = new Array(activeQuestions.length).fill(null);
+      flaggedQuestions = new Array(activeQuestions.length).fill(false);
+      currentIndex = 0;
+      remainingSeconds = TOTAL_TIME_SECONDS;
+      examSubmitted = false;
+      navigatorOpen = false;
+      currentNavFilter = "all";
+
+      navigatorPanel.classList.add("hidden");
+      toggleAllQuestionsBtn.textContent = "Show All Questions";
+
+      timerPill.className =
+        "inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0f172a] text-white font-extrabold text-sm sm:text-base tabular-nums shadow-xs transition-colors";
+      timerDisplay.textContent = formatTime(remainingSeconds);
+
+      startScreen.classList.add("hidden");
+      resultsScreen.classList.add("hidden");
+      examScreen.classList.remove("hidden");
+
+      renderQuestion();
+      startTimer();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function startTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        remainingSeconds--;
+        if (remainingSeconds < 0) remainingSeconds = 0;
+        timerDisplay.textContent = formatTime(remainingSeconds);
+
+        // Warning states: amber under 5:00, pulsing crimson under 1:00
+        if (remainingSeconds <= 60) {
+          timerPill.className =
+            "inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#e11d48] text-white font-extrabold text-sm sm:text-base tabular-nums animate-pulse shadow-xs transition-colors";
+        } else if (remainingSeconds <= 300) {
+          timerPill.className =
+            "inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-600 text-white font-extrabold text-sm sm:text-base tabular-nums shadow-xs transition-colors";
+        }
+
+        if (remainingSeconds === 0) {
+          clearInterval(timerInterval);
+          finalizeExam("Time limit (40:00) expired — automatically submitted.");
+        }
+      }, 1000);
+    }
+
+    function updateFlagUI() {
+      const isFlagged = flaggedQuestions[currentIndex];
+      if (isFlagged) {
+        qFlaggedStatusBadge.classList.remove("hidden");
+        flagBtn.className =
+          "inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-amber-300/90 hover:bg-amber-300 border border-amber-500 text-amber-950 font-extrabold text-xs sm:text-sm shadow-xs transition";
+        flagBtnText.textContent = "Flagged";
+      } else {
+        qFlaggedStatusBadge.classList.add("hidden");
+        flagBtn.className =
+          "inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#fef3c7] hover:bg-amber-200/80 border border-amber-300 text-amber-900 font-bold text-xs sm:text-sm transition";
+        flagBtnText.textContent = "Flag for Review";
+      }
+    }
+
+    function renderQuestion() {
+      const q = activeQuestions[currentIndex];
+      const total = activeQuestions.length;
+      const answeredCount = userAnswers.filter((a) => a !== null).length;
+      const flaggedCount = flaggedQuestions.filter(Boolean).length;
+      const unansweredCount = total - answeredCount;
+      const percent = Math.round((answeredCount / total) * 100);
+
+      // Update Header Progress & Counters
+      answeredCountText.textContent = answeredCount;
+      answeredPercentText.textContent = `${percent}%`;
+      examProgressBar.style.width = `${percent}%`;
+      headerFlaggedCount.textContent = flaggedCount;
+      navFlaggedCount.textContent = flaggedCount;
+      navUnansweredCount.textContent = unansweredCount;
+
+      // Update Question Card Metadata
+      qNumberLabel.textContent = currentIndex + 1;
+      qTopicLabel.textContent = q.topic;
+      questionText.textContent = q.question;
+      updateFlagUI();
+
+      // Render Option Cards (A, B, C, D)
+      const letters = ["A", "B", "C", "D"];
+      optionsContainer.innerHTML = "";
+
+      q.shuffledOptions.forEach((optionText, idx) => {
+        const isSelected = userAnswers[currentIndex] === optionText;
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = `option-card w-full text-left p-4 rounded-2xl border-2 flex items-center gap-3.5 ${
+          isSelected
+            ? "border-[#0d9488] bg-teal-50/70 shadow-xs"
+            : "border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/70"
+        }`;
+
+        btn.innerHTML = `
+          <span class="w-9 h-9 rounded-xl shrink-0 flex items-center justify-center text-sm font-extrabold transition-colors ${
+            isSelected
+              ? "bg-[#0d9488] text-white"
+              : "bg-slate-100 text-slate-800"
+          }">
+            ${letters[idx]}
+          </span>
+          <span class="text-sm sm:text-base font-medium leading-snug ${
+            isSelected ? "text-slate-900 font-semibold" : "text-slate-700"
+          }">
+            ${optionText}
+          </span>
+        `;
+
+        btn.addEventListener("click", () => {
+          userAnswers[currentIndex] = optionText;
+          renderQuestion();
+        });
+
+        optionsContainer.appendChild(btn);
+      });
+
+      // Prev / Next Button States
+      prevBtn.disabled = currentIndex === 0;
+      nextBtnText.textContent = currentIndex === total - 1 ? "Finish & Submit" : "Next";
+
+      if (navigatorOpen) {
+        renderNavigatorGrid();
+      }
+    }
+
+    function renderNavigatorGrid() {
+      navigatorGrid.innerHTML = "";
+      let shown = 0;
+
+      activeQuestions.forEach((_, idx) => {
+        const isAnswered = userAnswers[idx] !== null;
+        const isFlagged = flaggedQuestions[idx];
+        const isCurrent = idx === currentIndex;
+
+        if (currentNavFilter === "flagged" && !isFlagged) return;
+        if (currentNavFilter === "unanswered" && isAnswered) return;
+
+        shown++;
+        const cell = document.createElement("button");
+        cell.type = "button";
+
+        let styleClass = "";
+        if (isFlagged && isAnswered) {
+          styleClass = "bg-[#0d9488] text-white border-2 border-amber-400";
+        } else if (isFlagged) {
+          styleClass = "bg-amber-200 text-amber-950 border border-amber-400";
+        } else if (isAnswered) {
+          styleClass = "bg-[#0d9488] text-white";
+        } else {
+          styleClass = "bg-slate-100 text-slate-700 border border-slate-200 hover:bg-slate-200";
+        }
+
+        const currentClass = isCurrent ? "ring-2 ring-offset-2 ring-slate-900" : "";
+
+        cell.className = `relative h-10 rounded-xl text-xs font-extrabold flex items-center justify-center transition ${styleClass} ${currentClass}`;
+        cell.innerHTML = `
+          <span>${idx + 1}</span>
+          ${
+            isFlagged
+              ? `<span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#e11d48] border-2 border-white"></span>`
+              : ""
+          }
+        `;
+
+        cell.addEventListener("click", () => {
+          currentIndex = idx;
+          renderQuestion();
+        });
+
+        navigatorGrid.appendChild(cell);
+      });
+
+      if (shown === 0) {
+        navigatorGrid.innerHTML = `
+          <div class="col-span-full py-4 text-center text-xs font-medium text-slate-500 bg-slate-50 rounded-xl">
+            No questions match this filter.
+          </div>
+        `;
+      }
+    }
+
+    function openConfirmSubmit() {
+      const answeredCount = userAnswers.filter((a) => a !== null).length;
+      const unansweredCount = activeQuestions.length - answeredCount;
+      const flaggedCount = flaggedQuestions.filter(Boolean).length;
+
+      let html = `<p><strong>${studentName}</strong>, you have answered <strong>${answeredCount}</strong> of <strong>50</strong> questions.</p>`;
+      if (unansweredCount > 0) {
+        html += `<p class="text-rose-700 font-semibold">&bull; ${unansweredCount} question(s) are still unanswered.</p>`;
+      }
+      if (flaggedCount > 0) {
+        html += `<p class="text-amber-700 font-semibold">&bull; ${flaggedCount} question(s) are flagged for review.</p>`;
+      }
+      if (unansweredCount === 0 && flaggedCount === 0) {
+        html += `<p class="text-emerald-700 font-semibold">All 50 questions are answered and none remain flagged.</p>`;
+      }
+
+      confirmSubmitSummary.innerHTML = html;
+      confirmSubmitModal.classList.remove("hidden");
+    }
+
+    function finalizeExam(reasonText = "Submitted by candidate") {
+      if (examSubmitted) return;
+      examSubmitted = true;
+      if (timerInterval) clearInterval(timerInterval);
+
+      confirmSubmitModal.classList.add("hidden");
+      examScreen.classList.add("hidden");
+      resultsScreen.classList.remove("hidden");
+
+      let correctCount = 0;
+      let incorrectCount = 0;
+      let unansweredCount = 0;
+      const flaggedCount = flaggedQuestions.filter(Boolean).length;
+
+      const records = activeQuestions.map((q, idx) => {
+        const chosen = userAnswers[idx];
+        const isFlagged = flaggedQuestions[idx];
+        let status = "unanswered";
+
+        if (chosen === null) {
+          unansweredCount++;
+        } else if (chosen === q.correct) {
+          correctCount++;
+          status = "correct";
+        } else {
+          incorrectCount++;
+          status = "incorrect";
+        }
+
+        return {
+          index: idx + 1,
+          topic: q.topic,
+          question: q.question,
+          chosen,
+          correct: q.correct,
+          explanation: q.explanation,
+          status,
+          isFlagged,
+        };
+      });
+
+      const percentage = Math.round((correctCount / activeQuestions.length) * 100);
+      const passed = percentage >= 60;
+      const elapsed = TOTAL_TIME_SECONDS - remainingSeconds;
+
+      document.getElementById("resultStudentLine").textContent = `Candidate: ${studentName}`;
+      document.getElementById("resultSubReason").textContent = reasonText;
+      document.getElementById("finalScoreNum").textContent = correctCount;
+      document.getElementById("finalSummaryLine").textContent = `${percentage}% Score • Time Taken: ${formatTime(elapsed)} / 40:00`;
+
+      document.getElementById("statCorrect").textContent = correctCount;
+      document.getElementById("statIncorrect").textContent = incorrectCount;
+      document.getElementById("statUnanswered").textContent = unansweredCount;
+      document.getElementById("statFlagged").textContent = flaggedCount;
+      document.getElementById("statTimeTaken").textContent = formatTime(elapsed);
+
+      const badge = document.getElementById("resultStatusBadge");
+      if (passed) {
+        badge.textContent = "PASSED • EXCELLENT PERFORMANCE";
+        badge.className =
+          "inline-block px-4 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-300/40 text-emerald-200 text-xs font-bold uppercase tracking-widest mb-3";
+      } else {
+        badge.textContent = "COMPLETED • NEEDS REVIEW (< 60%)";
+        badge.className =
+          "inline-block px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-300/40 text-amber-200 text-xs font-bold uppercase tracking-widest mb-3";
+      }
+
+      window.__reviewRecords = records;
+      setupReviewFilters(records);
+      renderReviewList("all");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function setupReviewFilters(records) {
+      const counts = {
+        all: records.length,
+        incorrect: records.filter((r) => r.status === "incorrect").length,
+        correct: records.filter((r) => r.status === "correct").length,
+        unanswered: records.filter((r) => r.status === "unanswered").length,
+        flagged: records.filter((r) => r.isFlagged).length,
+      };
+
+      const buttons = document.querySelectorAll("#reviewFilters .filter-btn");
+      buttons.forEach((btn) => {
+        const f = btn.dataset.filter;
+        const label = f.charAt(0).toUpperCase() + f.slice(1);
+        btn.textContent = `${label} (${counts[f]})`;
+
+        btn.onclick = () => {
+          buttons.forEach((other) => {
+            if (other.dataset.filter === "flagged") {
+              other.className = "filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition";
+            } else {
+              other.className = "filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition";
+            }
+          });
+          btn.className = "filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-[#0f172a] text-white transition";
+          renderReviewList(f);
+        };
+      });
+    }
+
+    function renderReviewList(filter) {
+      const container = document.getElementById("reviewListContainer");
+      const records = window.__reviewRecords || [];
+      let list = records;
+      if (filter === "flagged") {
+        list = records.filter((r) => r.isFlagged);
+      } else if (filter !== "all") {
+        list = records.filter((r) => r.status === filter);
+      }
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-8 text-sm text-slate-500 bg-slate-50 rounded-2xl border border-slate-100">
+            No questions match this filter.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = list
+        .map((item) => {
+          let borderClass = "border-slate-200";
+          let statusBadge = `<span class="px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-700 text-[11px] font-bold">Unanswered</span>`;
+
+          if (item.status === "correct") {
+            borderClass = "border-emerald-200 bg-emerald-50/20";
+            statusBadge = `<span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold">Correct</span>`;
+          } else if (item.status === "incorrect") {
+            borderClass = "border-rose-200 bg-rose-50/20";
+            statusBadge = `<span class="px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-800 text-[11px] font-bold">Incorrect</span>`;
+          }
+
+          const flagTag = item.isFlagged
+            ? `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-[11px] font-bold">🚩 Flagged</span>`
+            : "";
+
+          return `
+            <article class="rounded-2xl border ${borderClass} p-4 sm:p-5 space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="text-xs font-extrabold text-slate-500">Question ${item.index} &bull; <span class="font-medium">${item.topic}</span></span>
+                <div class="flex items-center gap-1.5">
+                  ${flagTag}
+                  ${statusBadge}
+                </div>
+              </div>
+
+              <p class="text-sm sm:text-base font-bold text-slate-900 leading-snug">
+                ${item.question}
+              </p>
+
+              <div class="space-y-1.5 text-xs sm:text-sm">
+                ${
+                  item.status !== "correct"
+                    ? `<div class="p-2.5 rounded-xl bg-rose-50 border border-rose-200/80 text-rose-900">
+                        <span class="font-bold">Your Answer:</span> ${item.chosen ?? "<em>Unanswered</em>"}
+                      </div>`
+                    : ""
+                }
+                <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200/80 text-emerald-900">
+                  <span class="font-bold">Correct Answer:</span> ${item.correct}
+                </div>
+              </div>
+
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/70 text-xs text-slate-600 leading-relaxed">
+                <span class="font-bold text-slate-800">Explanation:</span> ${item.explanation}
+              </div>
+            </article>
+          `;
+        })
+        .join("");
+    }
+
+    // Event Listeners
+    startExamBtn.addEventListener("click", startExam);
+    studentNameInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") startExam();
+    });
+
+    retakeExamBtn.addEventListener("click", () => {
+      resultsScreen.classList.add("hidden");
+      startScreen.classList.remove("hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    flagBtn.addEventListener("click", () => {
+      flaggedQuestions[currentIndex] = !flaggedQuestions[currentIndex];
+      renderQuestion();
+    });
+
+    prevBtn.addEventListener("click", () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderQuestion();
+      }
+    });
+
+    nextBtn.addEventListener("click", () => {
+      if (currentIndex < activeQuestions.length - 1) {
+        currentIndex++;
+        renderQuestion();
+      } else {
+        openConfirmSubmit();
+      }
+    });
+
+    clearChoiceBtn.addEventListener("click", () => {
+      userAnswers[currentIndex] = null;
+      renderQuestion();
+    });
+
+    toggleAllQuestionsBtn.addEventListener("click", () => {
+      navigatorOpen = !navigatorOpen;
+      if (navigatorOpen) {
+        navigatorPanel.classList.remove("hidden");
+        toggleAllQuestionsBtn.textContent = "Hide All Questions";
+        renderNavigatorGrid();
+      } else {
+        navigatorPanel.classList.add("hidden");
+        toggleAllQuestionsBtn.textContent = "Show All Questions";
+      }
+    });
+
+    headerFlagCountBtn.addEventListener("click", () => {
+      navigatorOpen = true;
+      navigatorPanel.classList.remove("hidden");
+      toggleAllQuestionsBtn.textContent = "Hide All Questions";
+      const flagTab = document.querySelector('#navFilterGroup [data-navfilter="flagged"]');
+      if (flagTab) flagTab.click();
+    });
+
+    document.querySelectorAll("#navFilterGroup .nav-filter-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        currentNavFilter = btn.dataset.navfilter;
+        document.querySelectorAll("#navFilterGroup .nav-filter-btn").forEach((other) => {
+          if (other.dataset.navfilter === "flagged") {
+            other.className = "nav-filter-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition";
+          } else {
+            other.className = "nav-filter-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition";
+          }
+        });
+        btn.className = "nav-filter-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-[#0f172a] text-white transition";
+        renderNavigatorGrid();
+      });
+    });
+
+    submitExamBtn.addEventListener("click", openConfirmSubmit);
+    cancelSubmitBtn.addEventListener("click", () => confirmSubmitModal.classList.add("hidden"));
+    confirmSubmitBtn.addEventListener("click", () => finalizeExam("Submitted by candidate"));
+  </script>
+</body>
+</html>
